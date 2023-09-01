@@ -42,7 +42,7 @@ export default async function MatchIdPage({
 export function generateStaticParams(): { year: string; league: string }[] {
   return Object.keys(LEAGUES).flatMap((league) => {
     return [
-      2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013,
+      2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012,
     ].map((year) => {
       return {
         league,
