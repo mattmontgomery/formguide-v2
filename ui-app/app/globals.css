@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.grid-result {
+  @apply w-7 py-1 grid h-full;
+  @apply text-black font-semibold text-xs text-center content-center;
+  @apply border-r-[1px] border-r-gray-200;
+}
+.grid-result--win {
+  @apply bg-win;
+}
+.grid-result--draw {
+  @apply bg-draw;
+}
+.grid-result--loss {
+  @apply bg-loss;
+}
+.grid-result--incomplete {
+  @apply bg-gray-100;
+}
+.grid-result--highlighted {
+  @apply outline-4 outline-amber-500 outline-dotted z-10;
+}
+.page-title {
+  @apply text-lg font-bold text-slate-800;
+}
+.page-subtitle {
+  @apply text-sm font-bold text-slate-600;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
