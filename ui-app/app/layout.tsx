@@ -17,7 +17,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-full`}>
-        <div className="h-96 p-8">{children}</div>
+        <div className="p-8">{children}</div>
+        <div>
+          <a
+            href="https://github.com/mattmontgomery/formguide-v2"
+            className="text-win"
+          >
+            Contribute on Github
+          </a>
+        </div>
       </body>
     </html>
   );
