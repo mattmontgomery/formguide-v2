@@ -31,7 +31,7 @@ export async function apiFetchRequest<T = unknown>(
       "X-RapidAPI-Host": apiHost,
     },
     next: {
-      revalidate: 360,
+      revalidate: 3600,
     },
   });
   return resp.json();

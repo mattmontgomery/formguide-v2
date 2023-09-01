@@ -3,7 +3,6 @@ import { fetchForm } from "./data";
 import Grid from "./Grid";
 import PageHeader from "@/app/components/Page/Header";
 import { LEAGUES } from "@/app/leagues";
-import { GetStaticPathsResult } from "next";
 
 export default async function MatchIdPage({
   params,
