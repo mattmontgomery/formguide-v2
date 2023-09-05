@@ -1,4 +1,5 @@
 import React, { HTMLProps } from "react";
+import GridCell from "./Cell";
 
 export default function GridResultCell(
   props: {
@@ -8,8 +9,8 @@ export default function GridResultCell(
 ) {
   const { result, highlighted, className, ...divProps } = props;
   return (
-    <div
-      className={`grid-result ${
+    <GridCell
+      className={`${
         result === "W"
           ? "grid-result--win"
           : result === "D"
@@ -21,6 +22,6 @@ export default function GridResultCell(
       {...divProps}
     >
       {result ?? "-"}
-    </div>
+    </GridCell>
   );
 }

@@ -26,7 +26,7 @@
   @apply bg-gray-100;
 }
 .grid-result--highlighted {
-  @apply outline-4 outline-amber-500 outline-dotted z-10;
+  @apply outline-4 outline-amber-500 outline z-10;
 }
 .page-title {
   @apply text-lg font-bold text-slate-800;

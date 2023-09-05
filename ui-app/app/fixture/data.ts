@@ -88,3 +88,19 @@ export function getFixtureResultCode(
       : fixture.teams.away;
   return winner?.name === team.name ? "W" : winner ? "L" : "D";
 }
+
+export function getFixturePoints(
+  fixture: Fixture,
+  team: FixtureTeam
+): 3 | 1 | 0 | null {
+  const code = getFixtureResultCode(fixture, team);
+  switch (code) {
+    case "W":
+      return 3;
+    case "D":
+      return 1;
+    case "L":
+      return 0;
+  }
+  return null;
+}

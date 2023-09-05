@@ -1,8 +1,9 @@
 import React from "react";
 import fetchForm, { getTeamsFromForm } from "@/app/api/form";
-import Grid from "./FormGrid";
+// import Grid from "./Grid";
 import PageHeader from "@/app/components/Page/Header";
 import { LEAGUES } from "@/app/leagues";
+import RollingFormGrid from "./RollingFormGrid";
 
 export default async function MatchIdPage({
   params,
@@ -24,7 +25,7 @@ export default async function MatchIdPage({
           </>
         )}
       />
-      <Grid fixtures={data.response} teams={Object.keys(teams)} />
+      <RollingFormGrid fixtures={data.response} teams={Object.keys(teams)} />
     </div>
   );
 }
