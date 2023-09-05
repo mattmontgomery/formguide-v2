@@ -1,5 +1,5 @@
-import { ENDPOINT_FIXTURES_EVENTS } from "@/api";
-import { apiFetchRequest } from "@/api/fetch";
+import { ENDPOINT_FIXTURES_EVENTS } from "@/app/api";
+import { apiFetchRequest } from "@/app/api/fetch";
 
 export async function fetchMatchEvents(matchID: string): Promise<MatchEvents> {
   return await apiFetchRequest(ENDPOINT_FIXTURES_EVENTS, { fixture: matchID });
