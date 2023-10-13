@@ -46,7 +46,7 @@ export function getColorInRange({
     side === 0
       ? (value - min) / (median - min)
       : (max - value) / (max - median);
-  return `${range[side]}${decimalToHex(intensity * 255)}`;
+  return `${range[side]}${decimalToHex(Math.floor((1 - intensity) * 255))}`;
 }
 
 export default function Grid(props: { teams: string[]; fixtures: Fixture[] }) {
@@ -104,12 +104,14 @@ export default function Grid(props: { teams: string[]; fixtures: Fixture[] }) {
                 {rollingPeriods.map((value, idx) => {
                   return (
                     <GridCell
-                      className={`bg-[${getColorInRange({
-                        value,
-                        median: 1,
-                        min: 0,
-                        max: 3,
-                      })}]`}
+                      style={{
+                        backgroundColor: getColorInRange({
+                          value,
+                          median: 1,
+                          min: 0,
+                          max: 3,
+                        }),
+                      }}
                       key={idx}
                     >
                       {value}

@@ -7,14 +7,14 @@ export type FixtureResponse = {
   data: {
     get: "fixtures";
     parameters: {
-      league: "253";
-      season: "2023";
+      league: string;
+      season: string;
     };
     errors: [];
-    results: 493;
+    results: number;
     paging: {
-      current: 1;
-      total: 1;
+      current: number;
+      total: number;
     };
   };
   response: Fixture[];
@@ -34,14 +34,16 @@ export default async function fetchForm(options: {
 export function getTeamsFromForm(
   data: Awaited<ReturnType<typeof fetchForm>>
 ): Record<string, number> {
-  return data.response.reduce((acc: Record<string, number>, fixture) => {
-    const add: Record<string, number> = {};
-    if (!(fixture.teams.home.name in acc)) {
-      add[fixture.teams.home.name] = fixture.teams.home.id;
-    }
-    if (!(fixture.teams.away.name in acc)) {
-      add[fixture.teams.away.name] = fixture.teams.away.id;
-    }
-    return { ...acc, ...add };
-  }, {});
+  return data.response.reduce<ReturnType<typeof getTeamsFromForm>>(
+    (acc, fixture) => {
+      if (!(fixture.teams.home.name in acc)) {
+        acc[fixture.teams.home.name] = fixture.teams.home.id;
+      }
+      if (!(fixture.teams.away.name in acc)) {
+        acc[fixture.teams.away.name] = fixture.teams.away.id;
+      }
+      return acc;
+    },
+    {}
+  );
 }
